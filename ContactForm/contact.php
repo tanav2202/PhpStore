@@ -1,10 +1,5 @@
 <?php
 
-$db = new mysqli ("localhost" ,"root", "" , "testing");
-if ($mysqli -> connect_errno) {
-    echo "Failed to connect to MySQL: " . $mysqli -> connect_error;
-    exit();
-  }
 
 if (isset($_POST['submit'])) {
     $name = trim($_POST['name']);
@@ -14,6 +9,21 @@ if (isset($_POST['submit'])) {
 
     header("Location: contacthome.php?data_entered");
   
+}
+
+$db = mysqli_connect("localhost" ,"root", "" , "testing");
+if($db->connect_error)
+{
+  echo "no database found";
+}
+else{
+  $stmt= $db->prepare("insert into form(name , phone-number , subject , message) 
+  values(? ,? ,? ,? )") ;
+  $stmt->bind_param("siss", $name, $phone, $subject ,$message);
+  $stmt->execute();
+  echo "Data entered into file";
+  $stmt->close();
+  $db->close();
 }
 
 ?>
