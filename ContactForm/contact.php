@@ -6,6 +6,8 @@ if (isset($_POST['submit'])) {
     $subject = trim($_POST['subject']);
     $message = trim($_POST['message']);
 
+    header("Location: contacthome.php?mailsent");
+  
 }
 
 ?>
