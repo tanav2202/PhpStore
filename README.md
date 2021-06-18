@@ -1,3 +1,1 @@
-# UploadFileUsingPhp
-code to upload images using php 
-keeping it on github bcz i might be needing it for later projects and i can work on them by just customizing this
+#PhpStore - A Place to store my code that i will use in the foreseeable future
